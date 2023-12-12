@@ -4,6 +4,7 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\PropertiesController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,3 +28,4 @@ Route::get('/about', AboutController::class . '@showAboutPage')->name('about');
 Route::get('/properties', PropertiesController::class . '@showPropertiesList')->name('properties');
 Route::get('/single-property', PropertiesController::class . '@showSingleProperty')->name('single-property');
 Route::get('/contact', ContactController::class . '@showContactPage')->name('contact');
+Route::get('/dashboard',DashboardController::class .  '@index')->name('index');
