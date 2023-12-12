@@ -124,7 +124,7 @@
                         </div>
                     </div>
                     <div class="col-md-12">
-                        <button type="submit" class="btn btn-b">Search Property</button>
+                        <button type="submit" class="btn btn-primary">Search Property</button>
                     </div>
                 </div>
             </form>
