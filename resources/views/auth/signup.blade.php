@@ -37,7 +37,8 @@
                             <div class="col-md-6 col-lg-7 d-flex align-items-center">
                                 <div class="card-body p-4 p-lg-5 text-black">
 
-                                    <form>
+                                    <form method="POST" action="{{ route('register') }}">
+                                        @csrf
 
                                         <div class="d-flex align-items-center mb-3 pb-1">
                                             <a class="navbar-brand text-brand" href="{{ url('/') }}">Home<span
@@ -48,36 +49,54 @@
                                             account</h5>
 
                                         <div class="form-outline mb-4">
-                                            <label class="form-label" for="form2Example17">Username</label>
-                                            <input type="text" id="form2Example17"
-                                                class="form-control form-control-lg" />
-                                        </div>
-                                        <div class="form-outline mb-4">
-                                            <label class="form-label" for="form2Example17">Email</label>
-                                            <input type="email" id="form2Example17"
-                                                class="form-control form-control-lg" />
+                                            <label class="form-label" for="name">Username</label>
+                                            <input type="text" id="name" name="name"
+                                                class="form-control form-control-lg" required />
+                                            @error('name')
+                                                <div class="text-danger">{{ $message }}</div>
+                                            @enderror
                                         </div>
 
                                         <div class="form-outline mb-4">
-                                            <label class="form-label" for="form2Example27">Password</label>
-                                            <input type="password" id="form2Example27"
-                                                class="form-control form-control-lg" />
+                                            <label class="form-label" for="email">Email</label>
+                                            <input type="email" id="email" name="email"
+                                                class="form-control form-control-lg" required />
+                                            @error('email')
+                                                <div class="text-danger">{{ $message }}</div>
+                                            @enderror
                                         </div>
+
                                         <div class="form-outline mb-4">
-                                            <label class="form-label" for="form2Example27">confirm Password</label>
-                                            <input type="password" id="form2Example27"
-                                                class="form-control form-control-lg" />
+                                            <label class="form-label" for="password">Password</label>
+                                            <input type="password" id="password" name="password"
+                                                class="form-control form-control-lg" required />
+                                            @error('password')
+                                                <div class="text-danger">{{ $message }}</div>
+                                            @enderror
                                         </div>
+
+                                        <div class="form-outline mb-4">
+                                            <label class="form-label" for="password_confirmation">Confirm
+                                                Password</label>
+                                            <input type="password" id="password_confirmation"
+                                                name="password_confirmation" class="form-control form-control-lg"
+                                                required />
+                                            @error('password_confirmation')
+                                                <div class="text-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+
 
                                         <div class="pt-1 mb-4">
-                                            <button class="btn btn-dark btn-lg btn-block" type="button">Signup</button>
+                                            <button class="btn btn-dark btn-lg btn-block" type="submit">Signup</button>
                                         </div>
+
                                         <p class="mb-5 pb-lg-2" style="color: #090909;">Already have an account? <a
-                                                href="{{ route('login') }}" style="color: #2eca6a;">Login here</a>
-                                        </p>
+                                                href="{{ route('login') }}" style="color: #2eca6a;">Login here</a></p>
                                         <a href="#!" class="small text-muted">Terms of use.</a>
                                         <a href="#!" class="small text-muted">Privacy policy</a>
                                     </form>
+
 
                                 </div>
                             </div>

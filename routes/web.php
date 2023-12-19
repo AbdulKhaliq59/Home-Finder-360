@@ -23,9 +23,12 @@ Route::get('/', function () {
 });
 
 Route::get('/login', AuthController::class . '@showLoginForm')->name('login');
+Route::post('/login', AuthController::class . '@login')->name('login');
+Route::post('/logout', AuthController::class . '@logout')->name('logout');
 Route::get('/signup', AuthController::class . '@showSignUpForm')->name('signup');
+Route::post('/register', AuthController::class . '@register')->name('register');
 Route::get('/about', AboutController::class . '@showAboutPage')->name('about');
 Route::get('/properties', PropertiesController::class . '@showPropertiesList')->name('properties');
 Route::get('/single-property', PropertiesController::class . '@showSingleProperty')->name('single-property');
 Route::get('/contact', ContactController::class . '@showContactPage')->name('contact');
-Route::get('/dashboard',DashboardController::class .  '@index')->name('index');
+Route::get('/dashboard', DashboardController::class . '@index')->name('index')->middleware('admin');
