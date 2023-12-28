@@ -674,7 +674,39 @@
     </main><!-- End #main -->
 
     @include('components.footer')
+    @if (session('error'))
+        <div class="toast-container position-fixed bottom-0 start-0 p-6">
+            <div class="toast danger" id="liveToast" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-body">
+                    <div class="d-flex gap-4">
+                        <span><i class="fa-solid fa-circle-check fa-lg icon-success"></i></span>
+                        <div class="d-flex flex-column flex-grow-1 gap-2">
+                            <div class="d-flex align-items-center">
+                                <span class="fw-semibold">error Occured</span>
+                                <button type="button" class="btn-close btn-close-sm ms-auto" data-bs-dismiss="toast"
+                                    aria-label="Close"></button>
+                            </div>
+                            <span>
+                                {{ session('error') }}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
 
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <!-- Script to show the toast -->
+    <script>
+        $(document).ready(function() {
+            $('.toast').toast('show');
+        });
+    </script>
 </body>
 
 </html>

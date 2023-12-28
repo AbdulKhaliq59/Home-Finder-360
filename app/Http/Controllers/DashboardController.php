@@ -7,8 +7,10 @@ use Illuminate\Http\Request;
 class DashboardController extends Controller
 {
     //
-    function index(){
-        return view('pages.dashboard.index');
+    function index(Request $request)
+    {
+        $selectedNavItem = $request->get("navItem");
+        return view("pages.dashboard.index", compact("selectedNavItem"));
     }
-    
+
 }
