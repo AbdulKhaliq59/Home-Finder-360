@@ -36,12 +36,12 @@
             </a>
             <ul id="forms-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="">
+                    <a href="{{ url('/dashboard/add-house') }}">
                         <i class="bi bi-circle"></i><span>Add House</span>
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="{{ url('/dashboard/view-houses') }}">
                         <i class="bi bi-circle"></i><span>View All Houses</span>
                     </a>
                 </li>

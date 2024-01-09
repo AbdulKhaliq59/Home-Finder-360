@@ -3,9 +3,11 @@
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\HouseController;
 use App\Http\Controllers\LandlordController;
 use App\Http\Controllers\PropertiesController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ProvinceCellDataController;
 use App\Http\Controllers\TenantController;
 
 use Illuminate\Support\Facades\Route;
@@ -40,3 +42,16 @@ Route::get('/dashboard/tenants', [TenantController::class, 'getTenants'])->name(
 Route::get('/dashboard/landlords', [LandlordController::class, 'getLandlords'])
     ->name('dashboard.landlords')
     ->middleware('admin.only');
+Route::get('/dashboard/add-house', [HouseController::class, 'showAddHouseForm'])->middleware('admin')->name('dashboard.add-house');
+Route::post('/dashboard/add-house', [HouseController::class, 'createHouse'])->middleware('admin')->name('dashboard.create-house');
+Route::get('/dashboard/view-houses', [HouseController::class, 'showAllHouses'])->middleware('admin')->name('dashboard.view-houses');
+// Route::get('/dashboard/all-houses', [HouseController::class, 'showAllHouses'])->middleware('admin')->name('dashboard.all-houses');
+Route::delete('/dashboard/delete-house/{id}', [HouseController::class, 'deleteHouse'])->middleware('admin')->name('dashboard.delete-house');
+Route::put('/dashboard/update-house/{id}', [HouseController::class, 'updateHouse'])->middleware('admin')->name('dashboard.update-house');
+
+
+
+
+
+//Api for getting all provinceData
+Route::get('/get-province-cell-data', [ProvinceCellDataController::class, 'getProvinceCellData']);
