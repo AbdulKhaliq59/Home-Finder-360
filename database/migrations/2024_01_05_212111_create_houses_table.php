@@ -21,6 +21,7 @@ return new class extends Migration {
             $table->json('image_urls')->nullable();
             $table->json('address');
             $table->text('additional_description')->nullable();
+            $table->boolean('available')->default(true);
             $table->timestamps();
         });
     }

@@ -48,7 +48,7 @@ Route::get('/dashboard/view-houses', [HouseController::class, 'showAllHouses'])-
 // Route::get('/dashboard/all-houses', [HouseController::class, 'showAllHouses'])->middleware('admin')->name('dashboard.all-houses');
 Route::delete('/dashboard/delete-house/{id}', [HouseController::class, 'deleteHouse'])->middleware('admin')->name('dashboard.delete-house');
 Route::put('/dashboard/update-house/{id}', [HouseController::class, 'updateHouse'])->middleware('admin')->name('dashboard.update-house');
-
+Route::put('/toggle-house/{id}', [HouseController::class, 'toggleHouse'])->middleware('admin')->name('dashboard.toggle-house');
 
 
 

@@ -129,12 +129,6 @@ class HouseController extends Controller
                 'price' => 'required|integer',
                 'type' => 'required|string',
                 'rooms' => 'required|integer',
-                // 'image_urls.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Adjust the allowed file types and size
-                'province' => 'required|string',
-                'district' => 'required|string',
-                'sector' => 'required|string',
-                'cell' => 'required|string',
-                'village' => 'required|string',
                 'house_description' => 'nullable|string',
             ]);
 
@@ -167,14 +161,6 @@ class HouseController extends Controller
                 $house->image_urls = json_encode($imageUrls); // Convert the array to JSON
             }
 
-            // Update address information
-            $house->address = [
-                'province' => $request->input('province'),
-                'district' => $request->input('district'),
-                'sector' => $request->input('sector'),
-                'cell' => $request->input('cell'),
-                'village' => $request->input('village'),
-            ];
 
             $house->save();
 
@@ -182,9 +168,17 @@ class HouseController extends Controller
             return redirect()->back()->with('success', 'House updated successfully');
         } catch (\Exception $e) {
             // Handle the exception (e.g., display an error message)
-            return redirect()->back()->with('error', 'Failed to update the house');
+            return response()->json(['error', 'Failed to update the house' . $e->getMessage()]);
         }
     }
+    public function toggleHouse(Request $request, $id)
+    {
+        $house = House::findOrFail($id);
+        $house->update([
+            'available' => $request->input('available'),
+        ]);
 
+        return redirect()->back()->with('success', 'House availability toggled successfully');
+    }
 
 }

@@ -16,7 +16,8 @@ class House extends Model
         'rooms',
         'image_urls',
         'address',
-        'additional_description'
+        'additional_description',
+        'available',
     ];
     protected $casts = [
         'image_urls' => 'json',
