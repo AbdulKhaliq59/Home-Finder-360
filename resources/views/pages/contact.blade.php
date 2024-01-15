@@ -99,7 +99,7 @@
                                         </div>
                                         <div class="icon-box-content">
                                             <p class="mb-1">Email.
-                                                <span class="color-a">HomeFinder360@gmail.com</span>
+                                                <span class="color-a">360finderhome@gmail.com</span>
                                             </p>
                                             <p class="mb-1">Phone.
                                                 <span class="color-a">+250 781 840 978</span>

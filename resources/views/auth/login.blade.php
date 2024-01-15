@@ -21,10 +21,48 @@
 
     <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
+    <style>
+        .custom-toast {
+            position: fixed;
+            top: 16px;
+            right: 16px;
+            z-index: 1100;
+            animation: slideInRight 0.5s, fadeOut 1.5s 2.5s;
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+            }
+
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+
+            to {
+                opacity: 0;
+            }
+        }
+    </style>
 </head>
 
 <body>
+
     <section class="vh-110" style="background-color: #047b31;">
+        @if (session('error'))
+            <div class="custom-toast alert alert-danger bg-danger text-light border-0 alert-dismissible fade show"
+                role="alert">
+                {{ session('error') }}
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert"
+                    aria-label="Close"></button>
+            </div>
+        @endif
         <div class="container py-5 h-110">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col col-xl-10">
@@ -71,8 +109,6 @@
                                         <a href="#!" class="small text-muted">Terms of use.</a>
                                         <a href="#!" class="small text-muted">Privacy policy</a>
                                     </form>
-
-
                                 </div>
                             </div>
                         </div>
@@ -81,6 +117,8 @@
             </div>
         </div>
     </section>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

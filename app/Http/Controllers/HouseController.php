@@ -7,9 +7,9 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\House;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
-
 
 class HouseController extends Controller
 {
@@ -179,6 +179,46 @@ class HouseController extends Controller
         ]);
 
         return redirect()->back()->with('success', 'House availability toggled successfully');
+    }
+    public function showAvailableHouse()
+    {
+        $availableHouses = House::where('available', true)->paginate(6);
+        return view('pages.properties', compact('availableHouses'));
+    }
+    public function showLatestHouses()
+    {
+        $latestHouses = House::where('available', true)->latest()->get();
+        return view('welcome', compact('latestHouses'));
+    }
+    public function searchProperties(Request $request)
+    { // Validate the incoming request data as needed
+
+        $type = $request->input('type');
+        $province = $request->input('province');
+        $rooms = $request->input('rooms');
+        $maxPrice = $request->input('max_price');
+
+        $query = House::query();
+
+        if ($type !== 'All Type') {
+            $query->where('type', $type);
+        }
+
+        if ($province !== 'all province') {
+            $query->where('address->province', $province);
+        }
+
+        if ($rooms > 0) {
+            $query->where('rooms', '>=', $rooms);
+        }
+
+        if ($maxPrice > 0) {
+            $query->where('price', '<=', $maxPrice);
+        }
+
+        $properties = $query->paginate(9); // Adjust the pagination as needed
+
+        return view('pages.searched-property', compact('properties'));
     }
 
 }

@@ -17,10 +17,14 @@ class User extends AuthenticatableUser implements Authenticatable
         "name",
         "email",
         "password",
-        "role"
+        "role",
     ];
     public function houses(): HasMany
     {
         return $this->hasMany(House::class);
+    }
+    public function hasRole($role): bool
+    {
+        return $this->role === $role;
     }
 }

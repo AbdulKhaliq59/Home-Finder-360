@@ -1121,7 +1121,9 @@ a:hover {
 .intro-single {
     padding: 12rem 0 3rem;
 }
-
+.intro-single-profile {
+    padding: 5rem 0 3rem;
+}
 @media (max-width: 767px) {
     .intro-single {
         padding-top: 9rem;

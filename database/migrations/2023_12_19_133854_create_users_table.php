@@ -16,6 +16,10 @@ return new class extends Migration {
             $table->string('email')->unique();
             $table->string('password');
             $table->enum('role', ['tenant', 'landlord', 'admin'])->default('tenant');
+            $table->string('phoneNumber')->nullable();
+            $table->string('country')->nullable();
+            $table->string('address')->nullable();
+            $table->string('profile_image')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

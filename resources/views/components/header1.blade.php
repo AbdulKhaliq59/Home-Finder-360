@@ -1,6 +1,7 @@
 <!-- ======= Property Search Section ======= -->
 <div class="click-closed"></div>
 <!--/ Form Search Star /-->
+
 <div class="box-collapse">
     <div class="title-box-d">
         <h3 class="title-d">Search Property</h3>
@@ -90,29 +91,27 @@
                         href="{{ route('contact') }}">Contact</a>
                 </li>
 
-                @auth
+                @guest
+                    <!-- Show login button if the user is not logged in -->
+                    <li class="nav-item">
+                        <a href="{{ route('login') }}" class="btn btn-primary">Login</a>
+                    </li>
+                @else
                     <!-- Show profile icon with dropdown if the user is logged in -->
                     <li class="nav-item dropdown">
-
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-
                             <img src="../storage/{{ auth()->user()->profile_image }}" class="rounded-circle"
                                 style="width: 40px; height: 40px; object-fit: cover;" alt="profile">
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            @if (auth()->user()->hasRole('tenant'))
+                            @auth
                                 <a class="dropdown-item" href="{{ route('user-profile') }}">{{ auth()->user()->name }}</a>
-                            @endif
-                            @if (auth()->user()->hasRole('admin'))
-                                <a class="dropdown-item" href="{{ route('dashboard.index') }}">Dashboard</a>
-                            @elseif(auth()->user()->hasRole('landlord'))
-                                <a class="dropdown-item" href="{{ route('dashboard.index') }}">Dashboard</a>
-                            @endif
-
+                            @endauth
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{ route('logout') }}"
-                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
                                 Logout
                             </a>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -120,12 +119,8 @@
                             </form>
                         </div>
                     </li>
-                @else
-                    <!-- Show login button if the user is not logged in -->
-                    <li class="nav-item">
-                        <a href="{{ route('login') }}" class="btn btn-primary">Login</a>
-                    </li>
-                @endauth
+                @endguest
+
             </ul>
         </div>
 
@@ -136,6 +131,3 @@
 
     </div>
 </nav><!-- End Header/Navbar -->
-<!-- Add this script to your HTML file or include it in your JS files -->
-
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>

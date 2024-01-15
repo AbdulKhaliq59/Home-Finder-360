@@ -13,18 +13,18 @@
                 <div class="row">
                     <div class="col-md-12 col-lg-8">
                         <div class="title-single-box">
-                            <h1 class="title-single">Our Amazing Properties</h1>
-                            <span class="color-text-a">Grid Properties</span>
+                            <h1 class="title-single">Seached Properties</h1>
+                            <span class="color-text-a">Properties</span>
                         </div>
                     </div>
                     <div class="col-md-12 col-lg-4">
                         <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item">
-                                    <a href="{{ url('/') }}">Home</a>
+                                    <a href="{{ url('/properties') }}">All properties</a>
                                 </li>
                                 <li class="breadcrumb-item active" aria-current="page">
-                                    All properties
+                                    Properties Grid
                                 </li>
                             </ol>
                         </nav>
@@ -37,7 +37,7 @@
         <section class="property-grid grid">
             <div class="container">
                 <div class="row">
-                    @foreach ($availableHouses as $house)
+                    @foreach ($properties as $house)
                         <div class="col-md-4">
                             <div class="card-box-a card-shadow">
                                 <div class="img-box-a">
@@ -103,9 +103,9 @@
                             <ul class="pagination justify-content-end">
 
                                 <!-- Previous Page Link -->
-                                @if ($availableHouses->currentPage() > 1)
+                                @if ($properties->currentPage() > 1)
                                     <li class="page-item">
-                                        <a class="page-link" href="{{ $availableHouses->previousPageUrl() }}"
+                                        <a class="page-link" href="{{ $properties->previousPageUrl() }}"
                                             tabindex="-1">
                                             <span class="bi bi-chevron-left"></span>
                                         </a>
@@ -119,17 +119,16 @@
                                 @endif
 
                                 <!-- Pagination Elements -->
-                                @for ($i = 1; $i <= $availableHouses->lastPage(); $i++)
-                                    <li class="page-item {{ $i == $availableHouses->currentPage() ? 'active' : '' }}">
-                                        <a class="page-link"
-                                            href="{{ $availableHouses->url($i) }}">{{ $i }}</a>
+                                @for ($i = 1; $i <= $properties->lastPage(); $i++)
+                                    <li class="page-item {{ $i == $properties->currentPage() ? 'active' : '' }}">
+                                        <a class="page-link" href="{{ $properties->url($i) }}">{{ $i }}</a>
                                     </li>
                                 @endfor
 
                                 <!-- Next Page Link -->
-                                @if ($availableHouses->hasMorePages())
+                                @if ($properties->hasMorePages())
                                     <li class="page-item next">
-                                        <a class="page-link" href="{{ $availableHouses->nextPageUrl() }}">
+                                        <a class="page-link" href="{{ $properties->nextPageUrl() }}">
                                             <span class="bi bi-chevron-right"></span>
                                         </a>
                                     </li>
