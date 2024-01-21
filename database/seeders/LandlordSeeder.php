@@ -15,8 +15,8 @@ class LandlordSeeder extends Seeder
     {
         DB::table('users')->insert([
             'name' => 'landlord User',
-            'email' => 'Landlord@example.com',
-            'password' => Hash::make('password'),
+            'email' => 'Landlord@gmail.com',
+            'password' => Hash::make('Password'),
             'role' => 'landlord',
             'remember_token' => Str::random(10),
         ]);
