@@ -25,3 +25,6 @@ tenants and property owners.
 - run Tenant seed by `php artisan db:seed --class=TenantSeeder`
 - run `php artisan serve`
 - go to your browser type `localhost:8000`
+
+## Project image
+
