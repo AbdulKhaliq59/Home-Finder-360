@@ -14,6 +14,7 @@ housing search process, Homefinder360 aims to enhance the overall experience for
 tenants and property owners.
 
 
+
 ## How to run this project?
 - Open your `terminal`
 - clone this project by `git clone https://github.com/AbdulKhaliq59/Home-Finder-360.git`
@@ -27,4 +28,5 @@ tenants and property owners.
 - go to your browser type `localhost:8000`
 
 ## Project image
-
+- Homepage
+![homepage](https://github.com/AbdulKhaliq59/Home-Finder-360/assets/71641626/19919e6b-70ca-4b22-bca9-9a11dcb5d4b0)
