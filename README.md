@@ -1,4 +1,4 @@
-# HOME Finder 360#
+# HOME Finder 360
 
 ## Project definition
 
