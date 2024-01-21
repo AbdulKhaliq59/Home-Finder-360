@@ -1,6 +1,6 @@
-#HOME Finder 360
+# HOME Finder 360#
 
-##Project definition
+## Project definition
 
 Homefinder360 is a web-based application developed using
 Laravel, designed to assist
@@ -14,7 +14,7 @@ housing search process, Homefinder360 aims to enhance the overall experience for
 tenants and property owners.
 
 
-##How to run this project?
+## How to run this project?
 - Open your `terminal`
 - clone this project by `git clone https://github.com/AbdulKhaliq59/Home-Finder-360.git`
 - change directory to `cd Home-Finder-360`
