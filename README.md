@@ -30,3 +30,5 @@ tenants and property owners.
 ## Project image
 - Homepage
 ![homepage](https://github.com/AbdulKhaliq59/Home-Finder-360/assets/71641626/19919e6b-70ca-4b22-bca9-9a11dcb5d4b0)
+- Aboutpage
+![aboutpage](https://github.com/AbdulKhaliq59/Home-Finder-360/assets/71641626/86652f8e-a34f-4ae1-86a6-18095653a0f9)
